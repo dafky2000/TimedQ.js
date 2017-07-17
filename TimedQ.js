@@ -1,3 +1,16 @@
+/*
+ * Copyright (C) 2017 Daniel Kelly - All Rights Reserved
+ * You may use, distribute and modify this code under the
+ * terms of the GNU General Public License v3.0 license.
+ *
+ * You should have received a copy of the GNU General Public
+ * License v3 with this file file. If not, please:
+ * Email: myself@danielkelly.me, or
+ * Visit: https://raw.githubusercontent.com/dafky2000/TimedQ.js/master/LICENSE
+ *
+ * Above and including this line must remain unchanged.
+ *
+ */
 function TimedQ(options = {}) {
 	this.options = {
 		runtime: options.runtime || 40,
