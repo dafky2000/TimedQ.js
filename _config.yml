@@ -1,4 +1,5 @@
 title: TimedQ.js
 description: Javascript timed processing queue (and queue manager). Useful as a non render blocking processing queue in the browser.
 show_downloads: true
-google_analytics:theme: jekyll-theme-slate
+google_analytics: UA-19733362-2
+theme: jekyll-theme-slate
