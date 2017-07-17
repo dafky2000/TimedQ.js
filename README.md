@@ -14,6 +14,9 @@ A simple queue manager to call batches of functions and data in timed blocks. Th
 * Unit testing
 * API Documentation
 * Benchmarking
+* Investigate web workers
+  * Is it superior to TimedQ.js, or is TimedQ.js redundant?
+  * Can we make TimeQ.js better by using web workers?)
 
 # Download source
 
