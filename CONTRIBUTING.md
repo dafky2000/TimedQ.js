@@ -17,7 +17,7 @@ Third-party patches are essential to make TimedQ.js great. We want to keep it as
   * Only target release branches if you are certain your fix must be on that
     branch.
   * To quickly create a topic branch based on master; `git checkout -b
-    fix/master/my_contribution master`. Please avoid working directly on the
+    fix/master/fix-# master`. '#' should be a reference to the issue attempted to resolve. Please avoid working directly on the
     `master` branch.
 * Make commits of logical units.
 * Check for unnecessary whitespace with `git diff --check` before committing.
