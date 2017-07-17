@@ -1,3 +1,5 @@
+exports.TimedQ = TimedQ;
+
 function TimedQ(options = {}) {
 	this.options = {
 		runtime: options.runtime || 40,
