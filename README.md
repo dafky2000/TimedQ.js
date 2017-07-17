@@ -6,6 +6,10 @@ A simple queue manager to call batches of functions and data in timed blocks. Th
 
 [jsfiddle](https://jsfiddle.net/dafky2000/rnobkxam/)
 
+# DISCLAIMER
+
+This library is still experimental, under very active development and not ready for production use. I am working on it :) Please feel free to contribute! This is my first OSS project so please bear with me as I learn the ropes!
+
 # Assumptions / Requirements
 
 * ES6
