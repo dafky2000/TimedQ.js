@@ -1,1 +1,4 @@
-theme: jekyll-theme-slate
+title: TimedQ.js
+description: Javascript timed processing queue (and queue manager). Useful as a non render blocking processing queue in the browser.
+show_downloads: true
+google_analytics:theme: jekyll-theme-slate
