@@ -4,6 +4,8 @@ Javascript timed processing queue (and queue manager). Useful as a non render bl
 
 A simple queue manager to call batches of functions and data in timed blocks. The amount of data to be processed is self adjusted based on the function call time. The primary goal is to provide an easy to use, non render blocking processing queues so the browser does not lock up during large tasks with very little overhead. There is certainly a better way to explain this...
 
+[jsfiddle](https://jsfiddle.net/dafky2000/rnobkxam/)
+
 # Assumptions / Requirements
 
 * ES6
