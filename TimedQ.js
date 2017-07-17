@@ -153,38 +153,3 @@ TimedQ.prototype.process = function() {
 	if(remaining) this.timer = setTimeout(this.process.bind(this), this.options.breaktime);
 	else this.timer = setTimeout(this.process.bind(this), this.options.idletime);
 };
-
-function runtests() {
-	const Q = new TimedQ();
-
-	// TESTS
-	const f = function(input) {
-		 let newtext = 'f1' + input;
-		 newtext += ' another addition';
-		 newtext += ' another addition2';
-		 newtext += ' another addition3';
-		 return newtext;
-	};
-
-	const f2 = function(input) {
-		 let newtext = 'f2' + input;
-		 newtext += ' another addition';
-		 newtext += ' another addition2';
-		 newtext += ' another addition3';
-		 return newtext;
-	};
-
-	let data = [];
-	for(let x = 0; x < 1000000; ++x) {
-		data.push(['test'+x]);
-	}
-
-	for(let x = 0; x < 10; ++x) {
-		Q.enqueue(f, data);
-		Q.enqueue(f2, data);
-	}
-
-	console.log('Done adding items to the queues');
-}
-
-runtests();
