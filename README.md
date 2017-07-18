@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/dafky2000/TimedQ.js.svg?branch=testfix-1)](https://travis-ci.org/dafky2000/TimedQ.js)
+
 # TimedQ.js
 
 Javascript timed processing queue (and queue manager). Useful as a non render blocking processing queue in the browser to eliminate jank in animations and page elements. 

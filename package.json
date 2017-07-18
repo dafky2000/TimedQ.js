@@ -1,0 +1,14 @@
+{
+  "name": "timedq",
+  "version": "0.0.1",
+  "description": "TimedQ: Javascript timed processing queue (and queue manager)",
+  "scripts": {
+    "test": "node test/all.js"
+  },
+  "devDependencies": {
+    "test": "^0.6.0"
+  },
+  "dependencies": {
+    "require": "^2.4.20"
+  }
+}
