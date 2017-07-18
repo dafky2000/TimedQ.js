@@ -35,7 +35,7 @@ git clone https://github.com/dafky2000/TimedQ.js
 Add to the head tag in your project
 
 ```html
-<script src="TimedQ.js" async></script>
+<script src="TimedQ.js"></script>
 ```
 
 # Initialize & start TimedQ
