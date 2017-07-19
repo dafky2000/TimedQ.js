@@ -11,6 +11,13 @@
  * Above and including this line must remain unchanged.
  *
  */
+
+/**
+ * Create a new TimeQ manager for running many separate queues.
+ * @param {Object} [options] - (optional) Queue options
+ * @returns {TimedQ} TimedQ instance
+ * @class TimedQ
+ */
 function TimedQ(options = {}) {
 	this.options = {
 		runtime: options.runtime || 40,
@@ -24,6 +31,13 @@ function TimedQ(options = {}) {
 	this.start();
 }
 
+/**
+ * Create a new TimeQ.qgroup, a queue group is used for separating different queues of functions. Every unique enqueue signature has it's own `qgroup`
+ * @param {Reference} [signature] - Signature used to identify qgroup, this could be a `String`, `Object`, `Integer`, `Function`, whatever a `Map()` supports as a key
+ * @param {Integer} [index] - The array index of this `qgroup`, usually equal to the number of qgroups currently created.
+ * @param {Object} [options] - (optional) `qgroup` options
+ * @returns {TimedQ.qgroup} TimedQ qgroup reference
+ */
 TimedQ.prototype.qgroup = function(signature, index, options={}) {
 	this.index = index;
 	this.signature = signature;
@@ -42,6 +56,12 @@ TimedQ.prototype.qgroup = function(signature, index, options={}) {
 	};
 };
 
+/**
+ * Gets a qgroup by it's signature. If the qgroup doesn't exist than it is created on the automatically
+ * @param {Reference} [signature] - Signature to get
+ * @param {Function} [callback] - (optional) If the qgroup doesn't exist and we are creating one, what is the callback function (if not the same as the signature)
+ * @returns {TimedQ.qgroup} TimedQ.group reference
+ */
 TimedQ.prototype.get = function(sig, callback) {
 	// Get the existing queue
 	let q = this.queues.get(sig);
@@ -58,13 +78,13 @@ TimedQ.prototype.get = function(sig, callback) {
 	return q;
 };
 
-/*
-	data should always be an array of an array of parameters passed to the function. (2 dimensional array for adding batches of data to be processed)
-	options = {
-		callback: function(param1, param2) {}, // If different from signature
-		TODO: type: 'FIFO', // FIFO, LIFO
-	};
-*/
+/**
+ * Enqueue/Add data to be run in a queue.
+ * @param {Reference} [signature] - qgroup signature (Function) to assign the data to
+ * @param {Array} [data] - 2-dimensional array of data, first level is for each function call, second level is for each parameter. For example: [ ['firstcall-param1','firstcall-param2'], ['secondcall-param1','secondcall-param2'], ... ]
+ * @param {Object} [options] - (optional) Options to configure the queue such as a callback Function if the signature is not the Function itself
+ * @returns {TimedQ.qgroup} TimedQ.group reference
+ */
 TimedQ.prototype.enqueue = function(sig, data=[], options={}) {
 	// Get (or create) the this.qgroup
 	const q = this.get(sig, options.callback);
@@ -88,6 +108,11 @@ TimedQ.prototype.enqueue_one = function(sig, data, options={}) {
 	return this.enqueue(sig, [data], options);
 };
 
+/**
+ * Dequeue/remove and return one parameter set from a specific queue
+ * @param {Reference} [signature] - qgroup signature idententifier
+ * @returns {Array} - Set of parameters
+ */
 TimedQ.prototype.dequeue = function(sig) {
 	const q = this.queues.get(sig);
 
@@ -100,15 +125,24 @@ TimedQ.prototype.dequeue = function(sig) {
 	return qitem;
 };
 
+/**
+ * Starts the queue manager monitoring of the qgroups
+ */
 TimedQ.prototype.start = function() {
 	clearTimeout(this.timer);
 	this.process();
 };
 
+/**
+ * Stops the queue manager monitoring of the qgroups
+ */
 TimedQ.prototype.stop = function() {
 	clearTimeout(this.timer);
 };
 
+/**
+ * The main processing function. Manages how many queue items to process, runs them and tracks timing data against each qgroup.
+ */
 TimedQ.prototype.process = function() {
 	// Register as running to checks immediately
 	this.timer = 1;
