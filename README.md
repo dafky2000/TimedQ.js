@@ -24,18 +24,12 @@ This library is still experimental, under very active development and not ready 
   * Is it superior to TimedQ.js, or is TimedQ.js redundant?
   * Can we make TimeQ.js better by using web workers?
 
-# Download source
-
-```bash
-git clone https://github.com/dafky2000/TimedQ.js
-```
-
 # Include in your project
 
 Add to the head tag in your project
 
 ```html
-<script src="TimedQ.js"></script>
+<script src="//rawgit.com/dafky2000/TimedQ.js/master/TimedQ.js"></script>
 ```
 
 # Initialize & start TimedQ
