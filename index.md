@@ -27,7 +27,7 @@ Have their own set of limitations that make this library appealing:
 
 # The solution
 
-A self-adjusting queue management system which runs batches reasonable timeframes, giving the browser *time* to update and draw.
+A self-adjusting queue management system which runs batches within reasonable timeframes, giving the browser *time* to update and draw.
 
 Select the **result** tab to begin the test.
 
