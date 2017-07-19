@@ -1,0 +1,19 @@
+# main links
+main:
+  - title: "Home"
+    url: /
+  - title: "About"
+    url: /about/
+  - title: "Documentation"
+    url: /doc/#
+  - title: "Quick-Start"
+    url: /doc/#quick-start
+documentation:
+  - title: "Overview"
+    url: /doc/#
+  - title: "Quick-Start"
+    url: /doc/#quick-start
+  - title: "API"
+    url: /doc/#api-documentation
+  - title: "Examples"
+    url: /doc/#examples
